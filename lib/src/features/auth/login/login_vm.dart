@@ -1,10 +1,10 @@
 import 'package:asyncstate/asyncstate.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../core/exceptions/service_exception.dart';
-import '../../core/fp/either.dart';
-import '../../core/providers/application_providers.dart';
-import '../../models/user_model.dart';
+import '../../../core/exceptions/service_exception.dart';
+import '../../../core/fp/either.dart';
+import '../../../core/providers/application_providers.dart';
+import '../../../models/user_model.dart';
 import 'login_state.dart';
 
 part 'login_vm.g.dart';

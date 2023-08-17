@@ -1,16 +1,11 @@
-/// This file contains the theme data for the app.
-library barbershop_theme;
-
-import 'package:flutter/material.dart';
-
-import 'constants.dart';
+part of '../../barber_shop_app.dart';
 
 const _defaultInputBorder = OutlineInputBorder(
   borderSide: BorderSide(color: ColorConstants.grey),
   borderRadius: BorderRadius.all(Radius.circular(8)),
 );
 
-final themeData = ThemeData(
+final _themeData = ThemeData(
   inputDecorationTheme: InputDecorationTheme(
     labelStyle: const TextStyle(color: ColorConstants.grey),
     filled: true,
@@ -23,6 +18,17 @@ final themeData = ThemeData(
   ),
   useMaterial3: true,
   fontFamily: FontConstants.fontFamily,
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Colors.white,
+    iconTheme: IconThemeData(color: ColorConstants.brown),
+    centerTitle: true,
+    titleTextStyle: TextStyle(
+      color: Colors.black,
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+      fontFamily: FontConstants.fontFamily,
+    ),
+  ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       backgroundColor: ColorConstants.brown,

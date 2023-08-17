@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:validatorless/validatorless.dart';
 
-import '../../core/fp/nil.dart';
-import '../../core/ui/constants.dart';
-import '../../core/ui/helpers/form_helper.dart';
-import '../../core/ui/helpers/messages.dart';
+import '../../../core/fp/nil.dart';
+import '../../../core/ui/constants.dart';
+import '../../../core/ui/helpers/form_helper.dart';
+import '../../../core/ui/helpers/messages.dart';
 import 'login_state.dart';
 import 'login_vm.dart';
 
@@ -50,10 +50,10 @@ final class _LoginPageState extends ConsumerState<LoginPage> {
             opacity: 0.2,
           ),
         ),
-        child: Form(
-          key: _formKey,
-          child: Padding(
-            padding: const EdgeInsets.all(30),
+        child: Padding(
+          padding: const EdgeInsets.all(30),
+          child: Form(
+            key: _formKey,
             child: CustomScrollView(
               slivers: [
                 SliverFillRemaining(
@@ -94,6 +94,7 @@ final class _LoginPageState extends ConsumerState<LoginPage> {
                                   FloatingLabelBehavior.never,
                             ),
                             obscureText: true,
+                            onTapOutside: (_) => context.unfocus(),
                             validator: Validatorless.multiple([
                               Validatorless.required('Senha obrigatória'),
                               Validatorless.min(6, 'Senha inválida'),
@@ -128,14 +129,18 @@ final class _LoginPageState extends ConsumerState<LoginPage> {
                           ),
                         ],
                       ),
-                      const Align(
+                      Align(
                         alignment: Alignment.bottomCenter,
-                        child: Text(
-                          'Criar conta',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
+                        child: InkWell(
+                          onTap: () => Navigator.of(context)
+                              .pushNamed('/auth/register/user'),
+                          child: const Text(
+                            'Criar conta',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),

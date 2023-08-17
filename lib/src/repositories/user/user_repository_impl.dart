@@ -6,6 +6,7 @@ import 'package:dio/dio.dart';
 import '../../core/exceptions/auth_exception.dart';
 import '../../core/exceptions/repository_exception.dart';
 import '../../core/fp/either.dart';
+import '../../core/fp/nil.dart';
 import '../../core/rest_client/rest_client.dart';
 import '../../models/user_model.dart';
 import 'user_repository.dart';
@@ -27,19 +28,12 @@ final class UserRepositoryImpl implements UserRepository {
       return Success(data['access_token'] as String);
     } on DioException catch (e, s) {
       const errorMessage = 'Error while login';
-
-      if (e.response != null) {
-        final Response(:statusCode) = e.response!;
-
-        if (statusCode == HttpStatus.forbidden) {
-          log('Invalid credentials', error: e, stackTrace: s);
-
-          return const Failure(UnauthorizedException());
-        }
-      }
       log(errorMessage, error: e, stackTrace: s);
 
-      return const Failure(AuthError(message: errorMessage));
+      return switch (e.response?.statusCode) {
+        HttpStatus.forbidden => const Failure(UnauthorizedException()),
+        _ => Failure(AuthError(message: e.message ?? errorMessage)),
+      };
     }
   }
 
@@ -56,6 +50,30 @@ final class UserRepositoryImpl implements UserRepository {
       return const Failure(RepositoryException(message: errorMessage));
     } on FormatException catch (e, s) {
       const errorMessage = 'Error while parsing user data';
+      log(errorMessage, error: e, stackTrace: s);
+
+      return const Failure(RepositoryException(message: errorMessage));
+    }
+  }
+
+  @override
+  Future<Either<RepositoryException, Nil>> registerAdmin(
+    UserDto userDto,
+  ) async {
+    try {
+      await restClient.unAuth.post<void>(
+        '/users',
+        data: {
+          'name': userDto.name,
+          'email': userDto.email,
+          'password': userDto.password,
+          'profile': 'ADM',
+        },
+      );
+
+      return const Success(Nil());
+    } on DioException catch (e, s) {
+      const errorMessage = 'Error while registering admin user';
       log(errorMessage, error: e, stackTrace: s);
 
       return const Failure(RepositoryException(message: errorMessage));

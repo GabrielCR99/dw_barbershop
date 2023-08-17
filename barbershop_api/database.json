@@ -15,6 +15,76 @@
                 7,
                 8
             ]
+        },
+        {
+            "id": 6,
+            "name": "a",
+            "email": "a@a.com",
+            "password": "123123",
+            "profile": "ADM"
+        },
+        {
+            "id": 7,
+            "name": "a",
+            "email": "a@a.com",
+            "password": "123123",
+            "profile": "ADM"
+        },
+        {
+            "id": 8,
+            "name": "a",
+            "email": "a@a.com",
+            "password": "123123",
+            "profile": "ADM"
+        },
+        {
+            "id": 9,
+            "name": "a",
+            "email": "a@a.com",
+            "password": "123123",
+            "profile": "ADM"
+        },
+        {
+            "id": 10,
+            "name": "a",
+            "email": "a@a.com",
+            "password": "123123",
+            "profile": "ADM"
+        },
+        {
+            "id": 11,
+            "name": "a",
+            "email": "a@a.com",
+            "password": "123123",
+            "profile": "ADM"
+        },
+        {
+            "id": 12,
+            "name": "a",
+            "email": "a@a.com",
+            "password": "123123",
+            "profile": "ADM"
+        },
+        {
+            "id": 13,
+            "name": "a",
+            "email": "a@a.com",
+            "password": "123123",
+            "profile": "ADM"
+        },
+        {
+            "id": 14,
+            "name": "a",
+            "email": "a@a.com",
+            "password": "123123",
+            "profile": "ADM"
+        },
+        {
+            "id": 15,
+            "name": "a",
+            "email": "a@a.com",
+            "password": "123123",
+            "profile": "ADM"
         }
     ],
     "adm_users": [],
@@ -39,6 +109,21 @@
                 20,
                 12,
                 13
+            ]
+        },
+        {
+            "id": 3,
+            "user_id": "6",
+            "name": "a",
+            "email": "a@a.com",
+            "opening_days": [
+                "Ter",
+                "Qua",
+                "Qui"
+            ],
+            "opening_hours": [
+                13,
+                18
             ]
         }
     ],
