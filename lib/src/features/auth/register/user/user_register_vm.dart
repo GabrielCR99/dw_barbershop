@@ -1,3 +1,4 @@
+import 'package:asyncstate/asyncstate.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../core/fp/either.dart';
@@ -24,7 +25,7 @@ class UserRegisterVm extends _$UserRegisterVm {
   }) async {
     final userDto = (name: name, email: email, password: password);
     final userRegisterService = ref.watch(userRegisterAdmServiceProvider);
-    final result = await userRegisterService.execute(userDto);
+    final result = await userRegisterService.execute(userDto).asyncLoader();
 
     switch (result) {
       case Success():

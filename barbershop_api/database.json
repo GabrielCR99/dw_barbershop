@@ -85,6 +85,13 @@
             "email": "a@a.com",
             "password": "123123",
             "profile": "ADM"
+        },
+        {
+            "id": 16,
+            "name": "qmweok",
+            "email": "qwe@qwe.com",
+            "password": "123123",
+            "profile": "ADM"
         }
     ],
     "adm_users": [],
