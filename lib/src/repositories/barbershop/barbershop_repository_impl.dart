@@ -21,11 +21,11 @@ final class BarbershopRepositoryImpl implements BarbershopRepository {
   ) async {
     switch (user) {
       case UserModelAdm():
-        final Response(:data) = await restClient.auth.get<List<Object?>>(
+        final Response(data: List(first: response)!) =
+            await restClient.auth.get<List<Object?>>(
           '/barbershop',
           queryParameters: {'user_id': '#userAuthRef'},
         );
-        final List(first: response) = data!;
 
         return Success(
           BarbershopModel.fromMap(response! as Map<String, dynamic>),

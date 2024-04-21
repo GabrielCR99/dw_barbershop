@@ -34,10 +34,10 @@ final class _LoginPageState extends ConsumerState<LoginPage> {
         LoginState(status: LoginStateStatus.error) =>
           context.showError('Erro ao realizar login'),
         LoginState(status: LoginStateStatus.admLogin) => Navigator.of(context)
-            .pushNamedAndRemoveUntil('/home/adm', (_) => false),
+            .pushNamedAndRemoveUntil<void>('/home/adm', (_) => false),
         LoginState(status: LoginStateStatus.employeeLogin) =>
           Navigator.of(context)
-              .pushNamedAndRemoveUntil('/home/employee', (_) => false),
+              .pushNamedAndRemoveUntil<void>('/home/employee', (_) => false),
       },
     );
 
@@ -133,7 +133,7 @@ final class _LoginPageState extends ConsumerState<LoginPage> {
                         alignment: Alignment.bottomCenter,
                         child: InkWell(
                           onTap: () => Navigator.of(context)
-                              .pushNamed('/auth/register/user'),
+                              .pushNamed<void>('/auth/register/user'),
                           child: const Text(
                             'Criar conta',
                             style: TextStyle(

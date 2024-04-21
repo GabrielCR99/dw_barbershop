@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/ui/barbershop_icons.dart';
 import '../../../../core/ui/constants.dart';
+import '../../../../models/user_model.dart';
 
 final class HomeEmployeeTile extends StatelessWidget {
-  const HomeEmployeeTile({super.key});
+  final UserModel employee;
+
+  const HomeEmployeeTile({required this.employee, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +25,9 @@ final class HomeEmployeeTile extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: switch (true) {
-                  true => const NetworkImage('url'),
-                  false => const AssetImage(ImageConstants.avatar),
+                image: switch (employee.avatar) {
+                  final avatar? => NetworkImage(avatar),
+                  _ => const AssetImage(ImageConstants.avatar),
                 } as ImageProvider,
               ),
             ),
@@ -37,22 +40,29 @@ final class HomeEmployeeTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Nome e sobrenome',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                Text(
+                  employee.name,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     ElevatedButton(
-                      onPressed: UnimplementedError.new,
+                      onPressed: () => Navigator.of(context)
+                          .pushNamed<void>('/schedule', arguments: employee),
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
                       ),
                       child: const Text('AGENDAR'),
                     ),
                     OutlinedButton(
-                      onPressed: UnimplementedError.new,
+                      onPressed: () => Navigator.of(context).pushNamed<void>(
+                        '/employee/schedule',
+                        arguments: employee,
+                      ),
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(horizontal: 15),
                       ),

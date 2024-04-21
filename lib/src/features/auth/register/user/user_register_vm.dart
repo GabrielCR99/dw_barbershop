@@ -14,7 +14,7 @@ enum UserRegisterStateStatus {
 }
 
 @riverpod
-class UserRegisterVm extends _$UserRegisterVm {
+final class UserRegisterVm extends _$UserRegisterVm {
   @override
   UserRegisterStateStatus build() => UserRegisterStateStatus.initial;
 

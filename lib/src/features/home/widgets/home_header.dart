@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/providers/application_providers.dart';
 import '../../../core/ui/barbershop_icons.dart';
 import '../../../core/ui/constants.dart';
+import '../../../core/ui/widgets/barbershop_loader.dart';
+import '../adm/home_adm_vm.dart';
 
-final class HomeHeader extends StatelessWidget {
+final class HomeHeader extends ConsumerWidget {
   final bool showFilter;
 
   const HomeHeader({super.key, this.showFilter = true});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final barbershop = ref.watch(getMyBarbershopProvider);
+
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: const BoxDecoration(
@@ -24,48 +30,52 @@ final class HomeHeader extends StatelessWidget {
           bottomRight: Radius.circular(32),
         ),
       ),
+      width: MediaQuery.sizeOf(context).width,
       margin: const EdgeInsets.only(bottom: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
-            children: [
-              CircleAvatar(
-                backgroundColor: Color(0xFFBDBDBD),
-                child: SizedBox.shrink(),
-              ),
-              SizedBox(width: 16),
-              Flexible(
-                child: Text(
-                  'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  overflow: TextOverflow.ellipsis,
+          barbershop.maybeWhen(
+            orElse: () => const Center(child: BarbershopLoader()),
+            data: (data) => Row(
+              children: [
+                const CircleAvatar(
+                  backgroundColor: Color(0xFFBDBDBD),
+                  child: SizedBox.shrink(),
                 ),
-              ),
-              SizedBox(width: 16),
-              Expanded(
-                child: Text(
-                  'Editar',
-                  style: TextStyle(
+                const SizedBox(width: 16),
+                Flexible(
+                  child: Text(
+                    data.name,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                const Expanded(
+                  child: Text(
+                    'Editar',
+                    style: TextStyle(
+                      color: ColorConstants.brown,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () => ref.read(homeAdmProvider.notifier).logout(),
+                  icon: const Icon(
+                    BarbershopIcons.exit,
+                    size: 32,
                     color: ColorConstants.brown,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
                   ),
                 ),
-              ),
-              IconButton(
-                onPressed: UnimplementedError.new,
-                icon: Icon(
-                  BarbershopIcons.exit,
-                  size: 32,
-                  color: ColorConstants.brown,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
           const SizedBox(height: 24),
           const Text(

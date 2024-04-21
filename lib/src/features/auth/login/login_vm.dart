@@ -12,13 +12,13 @@ part 'login_vm.g.dart';
 @riverpod
 final class LoginVm extends _$LoginVm {
   @override
-  LoginState build() => const LoginState.initial();
+  LoginState build() =>
+      const (status: LoginStateStatus.initial, errorMessage: null);
 
   Future<void> login({required String email, required String password}) async {
-    final loaderHandler = AsyncLoaderHandler()..start();
-
     final service = ref.watch(userLoginServiceProvider);
-    final result = await service.execute(email: email, password: password);
+    final result =
+        await service.execute(email: email, password: password).asyncLoader();
 
     switch (result) {
       case Success():
@@ -30,16 +30,16 @@ final class LoginVm extends _$LoginVm {
 
         switch (userModel) {
           case UserModelAdm():
-            state = state.copyWith(status: LoginStateStatus.admLogin);
+            state =
+                const (status: LoginStateStatus.admLogin, errorMessage: null);
           case UserModelEmployee():
-            state = state.copyWith(status: LoginStateStatus.employeeLogin);
+            state = const (
+              status: LoginStateStatus.employeeLogin,
+              errorMessage: null
+            );
         }
       case Failure(exception: ServiceException(:final message)):
-        state = state.copyWith(
-          status: LoginStateStatus.error,
-          errorMessage: () => message,
-        );
+        state = (status: LoginStateStatus.error, errorMessage: message);
     }
-    loaderHandler.close();
   }
 }

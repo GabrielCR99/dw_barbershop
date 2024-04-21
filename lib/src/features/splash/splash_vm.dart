@@ -16,7 +16,7 @@ enum SplashState {
 }
 
 @riverpod
-class SplashVm extends _$SplashVm {
+final class SplashVm extends _$SplashVm {
   @override
   Future<SplashState> build() async {
     final sp = await SharedPreferences.getInstance();

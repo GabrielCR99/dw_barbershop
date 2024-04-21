@@ -7,7 +7,7 @@ import 'barbershop_register_state.dart';
 part 'barbershop_register_vm.g.dart';
 
 @riverpod
-class BarbershopRegisterVm extends _$BarbershopRegisterVm {
+final class BarbershopRegisterVm extends _$BarbershopRegisterVm {
   @override
   BarbershopRegisterState build() => BarbershopRegisterState.initial();
 

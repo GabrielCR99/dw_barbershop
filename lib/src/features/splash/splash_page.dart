@@ -51,11 +51,11 @@ final class _SplashPageState extends ConsumerState<SplashPage> {
         },
         data: (data) => switch (data) {
           SplashState.admLogged => Navigator.of(context)
-              .pushNamedAndRemoveUntil('/home/adm', (_) => false),
+              .pushNamedAndRemoveUntil<void>('/home/adm', (_) => false),
           SplashState.employeeLogged => Navigator.of(context)
-              .pushNamedAndRemoveUntil('/home/employee', (_) => false),
+              .pushNamedAndRemoveUntil<void>('/home/employee', (_) => false),
           _ => Navigator.of(context)
-              .pushNamedAndRemoveUntil('/auth/login', (_) => false),
+              .pushNamedAndRemoveUntil<void>('/auth/login', (_) => false),
         },
       ),
     );

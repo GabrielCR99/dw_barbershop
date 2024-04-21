@@ -40,7 +40,7 @@ final _themeData = ThemeData(
   ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
-      side: const BorderSide(color: ColorConstants.brown, width: 1),
+      side: const BorderSide(color: ColorConstants.brown),
       foregroundColor: ColorConstants.brown,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(8)),
