@@ -5,6 +5,7 @@ import 'package:validatorless/validatorless.dart';
 import '../../../../core/fp/nil.dart';
 import '../../../../core/ui/helpers/form_helper.dart';
 import '../../../../core/ui/helpers/messages.dart';
+import '../../../../core/ui/helpers/navigator_helper.dart';
 import 'user_register_vm.dart';
 
 final class UserRegisterPage extends ConsumerStatefulWidget {
@@ -30,7 +31,7 @@ final class _UserRegisterPageState extends ConsumerState<UserRegisterPage> {
       (_, state) => switch (state) {
         UserRegisterStateStatus.initial => const Nil(),
         UserRegisterStateStatus.success =>
-          Navigator.of(context).pushNamed('/auth/register/barbershop'),
+          context.pushNamed<void>('/auth/register/barbershop'),
         UserRegisterStateStatus.error =>
           context.showError('Erro ao registrar usuário Administrador'),
       },

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/providers/application_providers.dart';
 import '../../../core/ui/barbershop_icons.dart';
 import '../../../core/ui/constants.dart';
+import '../../../core/ui/helpers/navigator_helper.dart';
 import '../../../core/ui/widgets/barbershop_loader.dart';
 import '../widgets/home_header.dart';
 import 'home_adm_vm.dart';
@@ -16,7 +17,7 @@ final class HomeAdmPage extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) async {
-    await Navigator.of(context).pushNamed<void>('/employee/register');
+    await context.pushNamed<void>('/employee/register');
     ref
       ..invalidate(homeAdmProvider)
       ..invalidate(getMeProvider);

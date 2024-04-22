@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/ui/barbershop_icons.dart';
 import '../../../../core/ui/constants.dart';
+import '../../../../core/ui/helpers/navigator_helper.dart';
 import '../../../../models/user_model.dart';
 
 final class HomeEmployeeTile extends StatelessWidget {
@@ -51,15 +52,17 @@ final class HomeEmployeeTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     ElevatedButton(
-                      onPressed: () => Navigator.of(context)
-                          .pushNamed<void>('/schedule', arguments: employee),
+                      onPressed: () => context.pushNamed<void>(
+                        '/schedule',
+                        arguments: employee,
+                      ),
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
                       ),
                       child: const Text('AGENDAR'),
                     ),
                     OutlinedButton(
-                      onPressed: () => Navigator.of(context).pushNamed<void>(
+                      onPressed: () => context.pushNamed<void>(
                         '/employee/schedule',
                         arguments: employee,
                       ),

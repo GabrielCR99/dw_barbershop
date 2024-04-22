@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/providers/application_providers.dart';
 import '../../../core/ui/constants.dart';
+import '../../../core/ui/helpers/navigator_helper.dart';
 import '../../../core/ui/widgets/avatar_widget.dart';
 import '../../../core/ui/widgets/barbershop_loader.dart';
 import '../../../models/user_model.dart';
@@ -92,7 +93,7 @@ final class HomeEmployeePage extends ConsumerWidget {
                     ),
                     const SizedBox(height: 24),
                     OutlinedButton(
-                      onPressed: () => Navigator.of(context).pushNamed<void>(
+                      onPressed: () => context.pushNamed<void>(
                         '/employee/schedule',
                         arguments: data,
                       ),
@@ -133,7 +134,7 @@ final class HomeEmployeePage extends ConsumerWidget {
     UserModel data,
     WidgetRef ref,
   ) async {
-    await Navigator.of(context).pushNamed<void>('/schedule', arguments: data);
+    await context.pushNamed<void>('/schedule', arguments: data);
 
     return ref.invalidate(getTotalSchedulesTodayProvider);
   }

@@ -5,6 +5,7 @@ import 'package:validatorless/validatorless.dart';
 import '../../../../core/fp/nil.dart';
 import '../../../../core/ui/helpers/form_helper.dart';
 import '../../../../core/ui/helpers/messages.dart';
+import '../../../../core/ui/helpers/navigator_helper.dart';
 import '../../../../core/ui/widgets/hours_panel.dart';
 import '../../../../core/ui/widgets/weekdays_panel.dart';
 import 'barbershop_register_state.dart';
@@ -33,13 +34,13 @@ final class _BarbershopRegisterPageState
     ) = ref.watch(barbershopRegisterVmProvider.notifier);
 
     ref.listen(
-      barbershopRegisterVmProvider,
-      (_, state) => switch (state.status) {
+      barbershopRegisterVmProvider.select((value) => value.status),
+      (_, state) => switch (state) {
         BarbershopRegisterStateStatus.initial => const Nil(),
         BarbershopRegisterStateStatus.error =>
           context.showError('Erro ao cadastrar estabelecimento'),
-        BarbershopRegisterStateStatus.success => Navigator.of(context)
-            .pushNamedAndRemoveUntil('/home/adm', (_) => false),
+        BarbershopRegisterStateStatus.success =>
+          context.navigateNamed<void>('/home/adm'),
       },
     );
 

@@ -6,6 +6,7 @@ import '../../../core/fp/nil.dart';
 import '../../../core/ui/constants.dart';
 import '../../../core/ui/helpers/form_helper.dart';
 import '../../../core/ui/helpers/messages.dart';
+import '../../../core/ui/helpers/navigator_helper.dart';
 import 'login_state.dart';
 import 'login_vm.dart';
 
@@ -33,11 +34,10 @@ final class _LoginPageState extends ConsumerState<LoginPage> {
           context.showError(errorMessage),
         LoginState(status: LoginStateStatus.error) =>
           context.showError('Erro ao realizar login'),
-        LoginState(status: LoginStateStatus.admLogin) => Navigator.of(context)
-            .pushNamedAndRemoveUntil<void>('/home/adm', (_) => false),
+        LoginState(status: LoginStateStatus.admLogin) =>
+          context.navigateNamed<void>('/home/adm'),
         LoginState(status: LoginStateStatus.employeeLogin) =>
-          Navigator.of(context)
-              .pushNamedAndRemoveUntil<void>('/home/employee', (_) => false),
+          context.navigateNamed<void>('/home/employee'),
       },
     );
 
@@ -132,8 +132,8 @@ final class _LoginPageState extends ConsumerState<LoginPage> {
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: InkWell(
-                          onTap: () => Navigator.of(context)
-                              .pushNamed<void>('/auth/register/user'),
+                          onTap: () =>
+                              context.pushNamed<void>('/auth/register/user'),
                           child: const Text(
                             'Criar conta',
                             style: TextStyle(

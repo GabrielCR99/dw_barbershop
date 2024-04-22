@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/ui/constants.dart';
 import '../../core/ui/helpers/messages.dart';
+import '../../core/ui/helpers/navigator_helper.dart';
 import 'splash_vm.dart';
 
 final class SplashPage extends ConsumerStatefulWidget {
@@ -31,7 +32,7 @@ final class _SplashPageState extends ConsumerState<SplashPage> {
           Timer(const Duration(milliseconds: 300), () => _redirect(routeName));
     } else {
       _redirectTimer?.cancel();
-      Navigator.of(context).pushNamedAndRemoveUntil(routeName, (_) => false);
+      context.navigateNamed<void>(routeName);
     }
   }
 
@@ -82,9 +83,7 @@ final class _SplashPageState extends ConsumerState<SplashPage> {
             opacity: _animationOpacityLogo,
             curve: Curves.easeIn,
             duration: const Duration(seconds: 3),
-            onEnd: () {
-              _endAnimation.value = true;
-            },
+            onEnd: () => _endAnimation.value = true,
             // Navigator.of(context).pushAndRemoveUntil<void>(
             //   PageRouteBuilder(
             //     pageBuilder: (_, __, ___) => const LoginPage(),
