@@ -62,7 +62,7 @@ class _ScheduleCalendarState extends State<ScheduleCalendar> {
         children: [
           ValueListenableBuilder(
             valueListenable: _selectedDay,
-            builder: (_, selectedDayValue, child) => TableCalendar<void>(
+            builder: (_, selectedDayValue, __) => TableCalendar<void>(
               focusedDay: DateTime.now(),
               firstDay: DateTime.utc(2010),
               lastDay: DateTime.now().add(const Duration(days: 365 * 10)),

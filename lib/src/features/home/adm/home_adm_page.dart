@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/providers/application_providers.dart';
 import '../../../core/ui/barbershop_icons.dart';
 import '../../../core/ui/constants.dart';
 import '../../../core/ui/widgets/barbershop_loader.dart';
@@ -16,7 +17,9 @@ final class HomeAdmPage extends ConsumerWidget {
     WidgetRef ref,
   ) async {
     await Navigator.of(context).pushNamed<void>('/employee/register');
-    ref.invalidate(homeAdmProvider);
+    ref
+      ..invalidate(homeAdmProvider)
+      ..invalidate(getMeProvider);
   }
 
   @override

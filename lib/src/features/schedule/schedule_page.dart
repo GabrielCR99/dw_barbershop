@@ -122,7 +122,7 @@ final class _SchedulePageState extends ConsumerState<SchedulePage> {
             ),
             ValueListenableBuilder(
               valueListenable: _showCalendar,
-              builder: (_, showCalendarValue, child) => Offstage(
+              builder: (_, showCalendarValue, __) => Offstage(
                 offstage: !showCalendarValue,
                 child: Column(
                   children: [

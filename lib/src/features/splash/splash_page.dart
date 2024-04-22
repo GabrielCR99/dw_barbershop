@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/ui/constants.dart';
 import '../../core/ui/helpers/messages.dart';
-import '../auth/login/login_page.dart';
 import 'splash_vm.dart';
 
 final class SplashPage extends ConsumerStatefulWidget {
@@ -19,9 +18,22 @@ final class SplashPage extends ConsumerStatefulWidget {
 final class _SplashPageState extends ConsumerState<SplashPage> {
   var _scale = 10.0;
   var _animationOpacityLogo = 0.0;
+  final _endAnimation = ValueNotifier<bool>(false);
+  Timer? _redirectTimer;
 
   double get _logoAnimationWidth => _scale * 100;
   double get _logoAnimationHeight => _scale * 120;
+
+  void _redirect(String routeName) {
+    if (!_endAnimation.value) {
+      _redirectTimer?.cancel();
+      _redirectTimer =
+          Timer(const Duration(milliseconds: 300), () => _redirect(routeName));
+    } else {
+      _redirectTimer?.cancel();
+      Navigator.of(context).pushNamedAndRemoveUntil(routeName, (_) => false);
+    }
+  }
 
   @override
   void initState() {
@@ -46,16 +58,12 @@ final class _SplashPageState extends ConsumerState<SplashPage> {
             stackTrace: stackTrace,
           );
           context.showError('Erro ao validar login');
-          Navigator.of(context)
-              .pushNamedAndRemoveUntil('/auth/login', (_) => false);
+          _redirect('/auth/login');
         },
         data: (data) => switch (data) {
-          SplashState.admLogged => Navigator.of(context)
-              .pushNamedAndRemoveUntil<void>('/home/adm', (_) => false),
-          SplashState.employeeLogged => Navigator.of(context)
-              .pushNamedAndRemoveUntil<void>('/home/employee', (_) => false),
-          _ => Navigator.of(context)
-              .pushNamedAndRemoveUntil<void>('/auth/login', (_) => false),
+          SplashState.admLogged => _redirect('/home/adm'),
+          SplashState.employeeLogged => _redirect('/home/employee'),
+          _ => _redirect('/auth/login'),
         },
       ),
     );
@@ -74,14 +82,17 @@ final class _SplashPageState extends ConsumerState<SplashPage> {
             opacity: _animationOpacityLogo,
             curve: Curves.easeIn,
             duration: const Duration(seconds: 3),
-            onEnd: () => Navigator.of(context).pushAndRemoveUntil<void>(
-              PageRouteBuilder(
-                pageBuilder: (_, __, ___) => const LoginPage(),
-                transitionsBuilder: (_, animation, __, child) =>
-                    FadeTransition(opacity: animation, child: child),
-              ),
-              (_) => false,
-            ),
+            onEnd: () {
+              _endAnimation.value = true;
+            },
+            // Navigator.of(context).pushAndRemoveUntil<void>(
+            //   PageRouteBuilder(
+            //     pageBuilder: (_, __, ___) => const LoginPage(),
+            //     transitionsBuilder: (_, animation, __, child) =>
+            //         FadeTransition(opacity: animation, child: child),
+            //   ),
+            //   (_) => false,
+            // ),
             child: AnimatedContainer(
               width: _logoAnimationWidth,
               height: _logoAnimationHeight,
