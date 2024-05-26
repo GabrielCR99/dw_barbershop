@@ -85,10 +85,10 @@ packages:
     dependency: transitive
     description:
       name: build_daemon
-      sha256: "0343061a33da9c5810b2d6cee51945127d8f4c060b7fbdd9d54917f0a3feaaa1"
+      sha256: "79b2aef6ac2ed00046867ed354c88778c9c0f029df8a20fe10b5436826721ef9"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.1"
+    version: "4.0.2"
   build_resolvers:
     dependency: transitive
     description:
@@ -101,10 +101,10 @@ packages:
     dependency: "direct dev"
     description:
       name: build_runner
-      sha256: "3ac61a79bfb6f6cc11f693591063a7f19a7af628dc52f141743edac5c16e8c22"
+      sha256: "1414d6d733a85d8ad2f1dfcb3ea7945759e35a123cb99ccfac75d0758f75edfa"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.9"
+    version: "2.4.10"
   build_runner_core:
     dependency: transitive
     description:
@@ -246,10 +246,10 @@ packages:
     dependency: transitive
     description:
       name: dart_code_metrics_presets
-      sha256: "0084609984a260008a073d95f67d250cf8f284bfc70616efb84dd3b1162fc176"
+      sha256: "9db5c611175193f209b31ef4c03c88afdd954f575504d90b746d877f3a222c07"
       url: "https://pub.dev"
     source: hosted
-    version: "2.11.0"
+    version: "2.12.0"
   dart_style:
     dependency: transitive
     description:
@@ -389,10 +389,10 @@ packages:
     dependency: "direct main"
     description:
       name: intl
-      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
       url: "https://pub.dev"
     source: hosted
-    version: "0.18.1"
+    version: "0.19.0"
   io:
     dependency: transitive
     description:
@@ -413,10 +413,10 @@ packages:
     dependency: transitive
     description:
       name: json_annotation
-      sha256: b10a7b2ff83d83c777edba3c6a0f97045ddadd56c944e1a23a3fdf43a1bf4467
+      sha256: "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1"
       url: "https://pub.dev"
     source: hosted
-    version: "4.8.1"
+    version: "4.9.0"
   loading_animation_widget:
     dependency: "direct main"
     description:
@@ -453,10 +453,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: d584fa6707a52763a52446f02cc621b077888fb63b93bbcb1143a7be5a0c0c04
+      sha256: "7687075e408b093f36e6bbf6c91878cc0d4cd10f409506f7bc996f68220b9136"
       url: "https://pub.dev"
     source: hosted
-    version: "1.11.0"
+    version: "1.12.0"
   mime:
     dependency: transitive
     description:
@@ -637,10 +637,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_foundation
-      sha256: "7708d83064f38060c7b39db12aefe449cb8cdc031d6062280087bc4cdb988f5c"
+      sha256: "0a8a893bf4fd1152f93fec03a415d11c27c74454d96e2318a7ac38dd18683ab7"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.5"
+    version: "2.4.0"
   shared_preferences_linux:
     dependency: transitive
     description:
@@ -685,10 +685,10 @@ packages:
     dependency: transitive
     description:
       name: shelf_web_socket
-      sha256: "9ca081be41c60190ebcb4766b2486a7d50261db7bd0f5d9615f2d653637a84c1"
+      sha256: "073c147238594ecd0d193f3456a5fe91c4b0abbcc68bf5cd95b36c4e194ac611"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.4"
+    version: "2.0.0"
   simple_gesture_detector:
     dependency: transitive
     description:
@@ -762,34 +762,34 @@ packages:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_calendar
-      sha256: "24070f4ca1558d994e8232b250a2ce3edc920845c8b0f3597895afc8338c901e"
+      sha256: "398f8debce35a001cdbad74b23ede8ffba3d5b6668b2b348d15dfbd2dc2b00b2"
       url: "https://pub.dev"
     source: hosted
-    version: "25.1.40"
+    version: "25.2.5"
   syncfusion_flutter_core:
     dependency: transitive
     description:
       name: syncfusion_flutter_core
-      sha256: "8e19260d292ed77e1cbd4ee1baafb3c9486079cad856e7891478131d25076039"
+      sha256: "63108a33f9b0d89f7b6b56cce908b8e519fe433dbbe0efcf41ad3e8bb2081bd9"
       url: "https://pub.dev"
     source: hosted
-    version: "25.1.40"
+    version: "25.2.5"
   syncfusion_flutter_datepicker:
     dependency: transitive
     description:
       name: syncfusion_flutter_datepicker
-      sha256: "04e7cc46b2c0ebfcd76e6082284f7daaf4731df37ddcc876d3073159a6e55d25"
+      sha256: c2bda86a6137a64168584a36959bad9141cc9305f274b2a15f233074b92700a4
       url: "https://pub.dev"
     source: hosted
-    version: "25.1.40"
+    version: "25.2.5"
   table_calendar:
     dependency: "direct main"
     description:
       name: table_calendar
-      sha256: "1e3521a3e6d3fc7f645a58b135ab663d458ab12504f1ea7f9b4b81d47086c478"
+      sha256: b759eb6caa88dda8e51c70ee43c19d1682f8244458f84cced9138ee35b2ce416
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.9"
+    version: "3.1.1"
   term_glyph:
     dependency: transitive
     description:
@@ -810,10 +810,10 @@ packages:
     dependency: transitive
     description:
       name: timezone
-      sha256: "1cfd8ddc2d1cfd836bc93e67b9be88c3adaeca6f40a00ca999104c30693cdca0"
+      sha256: a6ccda4a69a442098b602c44e61a1e2b4bf6f5516e875bbf0f427d5df14745d5
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.2"
+    version: "0.9.3"
   timing:
     dependency: transitive
     description:
@@ -866,10 +866,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: "3923c89304b715fb1eb6423f017651664a03bf5f4b29983627c4da791f74a4ec"
+      sha256: "7475cb4dd713d57b6f7464c0e13f06da0d535d8b2067e188962a59bac2cf280b"
       url: "https://pub.dev"
     source: hosted
-    version: "14.2.1"
+    version: "14.2.2"
   watcher:
     dependency: transitive
     description:
@@ -886,22 +886,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.1"
+  web_socket:
+    dependency: transitive
+    description:
+      name: web_socket
+      sha256: "217f49b5213796cb508d6a942a5dc604ce1cb6a0a6b3d8cb3f0c314f0ecea712"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.4"
   web_socket_channel:
     dependency: transitive
     description:
       name: web_socket_channel
-      sha256: "58c6666b342a38816b2e7e50ed0f1e261959630becd4c879c4f26bfa14aa5a42"
+      sha256: a2d56211ee4d35d9b344d9d4ce60f362e4f5d1aafb988302906bd732bc731276
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.5"
+    version: "3.0.0"
   win32:
     dependency: transitive
     description:
       name: win32
-      sha256: "0a989dc7ca2bb51eac91e8fd00851297cfffd641aa7538b165c62637ca0eaa4a"
+      sha256: a79dbe579cb51ecd6d30b17e0cae4e0ea15e2c0e66f69ad4198f22a6789e94f4
       url: "https://pub.dev"
     source: hosted
-    version: "5.4.0"
+    version: "5.5.1"
   xdg_directories:
     dependency: transitive
     description:
@@ -927,5 +935,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.3.4 <4.0.0"
+  dart: ">=3.4.1 <4.0.0"
   flutter: ">=3.19.0"
