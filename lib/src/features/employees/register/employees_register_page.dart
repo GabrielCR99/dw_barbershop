@@ -164,8 +164,7 @@ class _EmployeesRegisterPageState extends ConsumerState<EmployeesRegisterPage> {
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () => switch (_formKey.currentState?.validate()) {
-                  false ||
-                  null =>
+                  (false || null) =>
                     context.showError('Preencha os campos obrigatórios'),
                   true => _register(),
                 },

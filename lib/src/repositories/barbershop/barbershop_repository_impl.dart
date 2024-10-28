@@ -24,7 +24,7 @@ final class BarbershopRepositoryImpl implements BarbershopRepository {
         final Response(data: List(first: response)!) =
             await restClient.auth.get<List<Object?>>(
           '/barbershop',
-          queryParameters: {'user_id': '#userAuthRef'},
+          queryParameters: const {'user_id': '#userAuthRef'},
         );
 
         return Success(
@@ -40,15 +40,17 @@ final class BarbershopRepositoryImpl implements BarbershopRepository {
 
   @override
   Future<Either<RepositoryException, Nil>> save(SaveDto dto) async {
+    final SaveDto(:name, :email, :openingDays, :openingHours) = dto;
+
     try {
       await restClient.auth.post<void>(
         '/barbershop',
         data: {
           'user_id': '#userAuthRef',
-          'name': dto.name,
-          'email': dto.email,
-          'opening_days': dto.openingDays,
-          'opening_hours': dto.openingHours,
+          'name': name,
+          'email': email,
+          'opening_days': openingDays,
+          'opening_hours': openingHours,
         },
       );
 

@@ -39,8 +39,8 @@ final class _SplashPageState extends ConsumerState<SplashPage> {
   @override
   void initState() {
     super.initState();
-    scheduleMicrotask(
-      () => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => setState(() {
         _animationOpacityLogo = 1.0;
         _scale = 1.0;
       }),
